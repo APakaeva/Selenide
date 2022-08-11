@@ -243,17 +243,16 @@ class cardDeliveryNegativeTest {
                 .shouldBe(visible, Duration.ofSeconds(15)).shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
-    @Test
-    void notShouldCardDeliveryNameWithRareLetter() {
-        String planningDate = date(3);
-        SelenideElement form = $("form");
-        form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
-        $("[data-test-id=name] input").setValue("Семён Петров");
-        $("[data-test-id=phone] input").setValue("+78888888888");
-        $("[data-test-id=agreement]").click();
-        $x("//*[contains(text(), 'Забронировать')]").click();
-        $("[data-test-id=notification] .notification__content")
-                .shouldBe(visible, Duration.ofSeconds(15)).should(exactText("Встреча успешно забронирована на " + planningDate));
-    }
+    //@Test
+    //void notShouldCardDeliveryNameWithRareLetter() {
+        //String planningDate = date(3);
+        //SelenideElement form = $("form");
+        //$("[data-test-id=date] input").setValue(planningDate);
+        //$("[data-test-id=name] input").setValue("Семён Петров");
+        //$("[data-test-id=phone] input").setValue("+78888888888");
+        //$("[data-test-id=agreement]").click();
+        //$x("//*[contains(text(), 'Забронировать')]").click();
+        //$("[data-test-id=notification] .notification__content")
+                //.shouldBe(visible, Duration.ofSeconds(15)).should(exactText("Встреча успешно забронирована на " + planningDate));
+    //}
 }
