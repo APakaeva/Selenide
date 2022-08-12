@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-class cardDeliveryNegativeTest {
+class CardDeliveryNegativeTest {
     String date(int days) {
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
@@ -27,7 +27,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Тольятти");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -40,7 +40,7 @@ class cardDeliveryNegativeTest {
     void notShouldCardDeliveryEmptyCity() {
         String planningDate = date(3);
         SelenideElement form = $("form");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -54,7 +54,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Vasilievich Vasiliy");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -68,7 +68,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич 1Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -82,7 +82,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("В");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -96,7 +96,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
         $x("//*[contains(text(), 'Забронировать')]").click();
@@ -109,7 +109,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(4);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").doubleClick().sendKeys(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -123,7 +123,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(2);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").doubleClick().sendKeys(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -137,7 +137,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(0);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").doubleClick().sendKeys(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -151,7 +151,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(-1);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").doubleClick().sendKeys(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
@@ -179,7 +179,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $x("//*[contains(text(), 'Забронировать')]").click();
@@ -192,7 +192,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("!78888888888");
         $("[data-test-id=agreement]").click();
@@ -206,7 +206,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+788888888888");
         $("[data-test-id=agreement]").click();
@@ -220,7 +220,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("+7888888888");
         $("[data-test-id=agreement]").click();
@@ -234,7 +234,7 @@ class cardDeliveryNegativeTest {
         String planningDate = date(3);
         SelenideElement form = $("form");
         form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Васильевич Василий");
         $("[data-test-id=phone] input").setValue("78888888888");
         $("[data-test-id=agreement]").click();
@@ -247,8 +247,7 @@ class cardDeliveryNegativeTest {
     void notShouldCardDeliveryNameWithRareLetter() {
         String planningDate = date(3);
         SelenideElement form = $("form");
-        form.$("[data-test-id=city] input").setValue("Санкт-Петербург");
-        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE, (planningDate));
         $("[data-test-id=name] input").setValue("Семён Петров");
         $("[data-test-id=phone] input").setValue("+78888888888");
         $("[data-test-id=agreement]").click();
